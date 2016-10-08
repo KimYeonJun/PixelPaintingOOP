@@ -135,19 +135,7 @@ void drawSquareIcon2(const int& i0, const int& j0, const int& i1, const int& j1,
 	double xpos, ypos;
 	glfwGetCursorPos(window, &xpos, &ypos);
 	ypos = height - ypos - 1;
-	/*if (xpos <= i0 + edge && xpos >= i0 && ypos <= j0 + edge && ypos >= j0) {
-		drawLine(i0, j0, i0 + edge, j0, 1.0f, 0.0f, 0.0f);
-		drawLine(i0 + edge, j0, i0 + edge, j0 + edge, 1.0f, 0.0f, 0.0f);
-		drawLine(i0, j0 + edge, i0 + edge, j0 + edge, 1.0f, 0.0f, 0.0f);
-		drawLine(i0, j0, i0, j0 + edge, 1.0f, 0.0f, 0.0f);
-	}
-	else {
-		drawLine(i0, j0, i0 + edge, j0, 0.0f, 0.0f, 1.0f);
-		drawLine(i0 + edge, j0, i0 + edge, j0 + edge, 0.0f, 0.0f, 1.0f);
-		drawLine(i0, j0 + edge, i0 + edge, j0 + edge, 0.0f, 0.0f, 1.0f);
-		drawLine(i0, j0, i0, j0 + edge, 0.0f, 0.0f, 1.0f);
-
-	}*/
+	
 	if (xpos >= i0&&xpos <= i1&&ypos >= j0&&ypos <= j1)
 	{
 		drawLine(i0, j0, i1, j0, red, green, blue);
@@ -159,7 +147,6 @@ void drawSquareIcon2(const int& i0, const int& j0, const int& i1, const int& j1,
 
 
 }
-//void drawCircle(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue)
 void drawCircle(const int& i0, const int& j0, const int& r, const float& red, const float& green, const float& blue)
 {
 
@@ -252,10 +239,7 @@ void drawOnPixelBuffer(GLFWwindow* window)
 	{
 		my_objects[i]->draw();
 	}
-	/*for (int i = 0;i < 10;i++)
-	{
-		my_objects2[i]->draw();
-	}*/
+	
 }
 
 int main(void)
