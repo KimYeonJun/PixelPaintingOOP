@@ -149,12 +149,12 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="DownArrow.cpp" />
     <ClCompile Include="Geometric.cpp" />
-    <ClCompile Include="Icon.cpp" />
     <ClCompile Include="LeftArrow.cpp" />
     <ClCompile Include="RightArrow.cpp" />
     <ClCompile Include="SmallCircle.cpp" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="Square.cpp" />
+    <ClCompile Include="SquareIcon.cpp" />
     <ClCompile Include="ThickLine.cpp" />
     <ClCompile Include="UpArrow.cpp" />
     <ClCompile Include="Xicon.cpp" />
@@ -164,11 +164,11 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="DownArrow.h" />
     <ClInclude Include="GeometricObject.h" />
-    <ClInclude Include="Icon.h" />
     <ClInclude Include="LeftArrow.h" />
     <ClInclude Include="RightArrow.h" />
     <ClInclude Include="SmallCircle.h" />
     <ClInclude Include="Square.h" />
+    <ClInclude Include="SquareIcon.h" />
     <ClInclude Include="ThickLine.h" />
     <ClInclude Include="UpArrow.h" />
     <ClInclude Include="Xicon.h" />

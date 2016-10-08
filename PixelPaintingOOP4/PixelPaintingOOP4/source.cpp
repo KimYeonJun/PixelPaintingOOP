@@ -18,12 +18,14 @@
 #include "LeftArrow.h"
 #include "UpArrow.h"
 #include "Circle.h"
-const int width = 1200;
+#include "SquareIcon.h"
+const int width = 1300;
 const int height = 1200;
 GLFWwindow* window;
 float* pixels = new float[width*height * 3];
 GeometricObject **my_objects = new GeometricObject*[40];
 void drawIcon(const int& i0, const int& j0, const int& r, const float& red, const float& green, const float& blue, GLFWwindow* window);
+void drawSquareIcon2(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue, GLFWwindow *window);
 
 void drawPixel(const int& i, const int& j, const float& red, const float& green, const float& blue)
 {
@@ -116,6 +118,45 @@ void drawSquare(const int& i0, const int& j0, const int& i1, const int& j1, cons
 	drawLine(i1, j0, i1, j1, red, green, blue);
 	drawLine(i0, j1, i1, j1, red, green, blue);
 	drawLine(i0, j0, i0, j1, red, green, blue);
+
+}
+void drawSquareIcon(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue)
+{
+	drawLine(i0, j0, i1, j0, red, green, blue);
+	drawLine(i1, j0, i1, j1, red, green, blue);
+	drawLine(i0, j1, i1, j1, red, green, blue);
+	drawLine(i0, j0, i0, j1, red, green, blue);
+	
+	drawSquareIcon2(i0, j0, i1, j1, 1.0f, 0.0f, 0.0f,window);
+}
+void drawSquareIcon2(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue, GLFWwindow *window)
+{
+
+	double xpos, ypos;
+	glfwGetCursorPos(window, &xpos, &ypos);
+	ypos = height - ypos - 1;
+	/*if (xpos <= i0 + edge && xpos >= i0 && ypos <= j0 + edge && ypos >= j0) {
+		drawLine(i0, j0, i0 + edge, j0, 1.0f, 0.0f, 0.0f);
+		drawLine(i0 + edge, j0, i0 + edge, j0 + edge, 1.0f, 0.0f, 0.0f);
+		drawLine(i0, j0 + edge, i0 + edge, j0 + edge, 1.0f, 0.0f, 0.0f);
+		drawLine(i0, j0, i0, j0 + edge, 1.0f, 0.0f, 0.0f);
+	}
+	else {
+		drawLine(i0, j0, i0 + edge, j0, 0.0f, 0.0f, 1.0f);
+		drawLine(i0 + edge, j0, i0 + edge, j0 + edge, 0.0f, 0.0f, 1.0f);
+		drawLine(i0, j0 + edge, i0 + edge, j0 + edge, 0.0f, 0.0f, 1.0f);
+		drawLine(i0, j0, i0, j0 + edge, 0.0f, 0.0f, 1.0f);
+
+	}*/
+	if (xpos >= i0&&xpos <= i1&&ypos >= j0&&ypos <= j1)
+	{
+		drawLine(i0, j0, i1, j0, red, green, blue);
+		drawLine(i1, j0, i1, j1, red, green, blue);
+		drawLine(i0, j1, i1, j1, red, green, blue);
+		drawLine(i0, j0, i0, j1, red, green, blue);
+	}
+
+
 
 }
 //void drawCircle(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue)
@@ -308,7 +349,7 @@ int main(void)
 		{
 			my_objects[i] = new UpArrow(1050, 630, 1080, 660, 1110, 630, 1080, 530);
 		}
-		else if (i >= 20 && i < 25)
+		/*else if (i >= 20 && i < 25)
 		{
 			my_objects[i] = new Circle(120 + 240 * (i - 20), 120, 100);
 		}
@@ -323,8 +364,23 @@ int main(void)
 		else if (i >= 35 && i < 40)
 		{
 			my_objects[i] = new Circle(120 + 240 * (i - 35), 840, 100);
+		}*/
+		else if (i >= 20 && i < 25)
+		{
+			my_objects[i] = new SquareIcon(20 + 240 * (i - 20), 20, 220 + 240 * (i - 20), 220);
 		}
-		
+		else if (i >= 25 && i < 30)
+		{
+			my_objects[i] = new SquareIcon(20 + 240 * (i - 25), 260, 220 + 240 * (i - 25), 460);
+		}
+		else if (i >= 30 && i < 35)
+		{
+			my_objects[i] = new SquareIcon(20 + 240 * (i - 30), 500, 220 + 240 * (i - 30), 700);
+		}
+		else if (i >= 35 && i < 40)
+		{
+			my_objects[i] = new SquareIcon(20 + 240 * (i - 35), 740, 220 + 240 * (i - 35), 940);
+		}
 	}
 	
 	
